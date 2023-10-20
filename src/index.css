@@ -1,0 +1,32 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	font-family: Roboto, sans-serif;
+}
+:root {
+	--main-white: #ffffff;
+	--main-black: #000000;
+	--main-blue: #86d3f4;
+	--inactive: #4e4e4e;
+	--error: #ea0000;
+}
+.text-xl {
+	font-size: 32px;
+	font-weight: 700;
+}
+.text-l {
+	font-size: 26px;
+	font-weight: 400;
+}
+.text-m {
+	font-size: 16px;
+	font-weight: 600;
+}
+.text-s {
+	font-size: 14px;
+	font-weight: 400;
+}

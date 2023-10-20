@@ -1,0 +1,21 @@
+.button {
+	font-family: inherit;
+	text-align: center;
+	color: var(--main-black);
+	width: 100%;
+	height: 100%;
+	padding: 16px;
+	background: transparent;
+	border: 2px solid var(--main-black);
+}
+
+.button:hover,
+.active {
+	color: var(--main-white);
+	background-color: var(--main-black);
+}
+
+.button:disabled {
+	color: var(--inactive);
+	border: 1px solid var(--inactive);
+}
