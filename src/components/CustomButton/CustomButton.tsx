@@ -13,11 +13,14 @@ export default function CustomButton({
 	buttonText,
 	onClick,
 	isActive,
-	isDisabled
+	isDisabled,
+	addClassName
 }: Props) {
 	return (
 		<button
-			className={`text-m ${s.button} ${isActive ? s.active : ''}`}
+			className={`text-m ${s.button} ${isActive ? s.active : ''} ${
+				addClassName ? addClassName : ''
+			}`}
 			onClick={onClick}
 		>
 			{buttonText.toUpperCase()}
