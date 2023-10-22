@@ -7,15 +7,16 @@
 	padding: 16px;
 	background: transparent;
 	border: 2px solid var(--main-black);
+	transition: background-color 0.25s linear;
 }
 
-.button:hover,
-.active {
+.active,
+.focused {
 	color: var(--main-white);
 	background-color: var(--main-black);
 }
 
 .button:disabled {
 	color: var(--inactive);
-	border: 1px solid var(--inactive);
+	border: 2px solid var(--inactive);
 }

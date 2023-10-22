@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import s from './Background.module.css';
 import back from '../../assets/media/smeshariki.mp4';
 
@@ -26,8 +26,6 @@ export default function Background({ clickRef }: Props) {
 				style={{ display: 'none' }}
 				ref={clickRef}
 				onClick={() => {
-					console.log(123);
-
 					handlePlayPause();
 				}}
 			/>

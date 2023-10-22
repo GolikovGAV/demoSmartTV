@@ -14,6 +14,7 @@
 	position: relative;
 	cursor: pointer;
 	user-select: none;
+	transition: all 0.25s linear;
 	border: 2px solid var(--main-black);
 }
 .checkbox {
@@ -31,7 +32,6 @@
 	left: 50%;
 	top: 45%;
 	transform: translate(-50%, -50%);
-
 	background-color: transparent;
 }
 .check:after {
@@ -45,4 +45,9 @@
 }
 .checkbox:checked ~ .check:after {
 	display: block;
+}
+.customCheckbox:hover,
+.focus {
+	border: 3px solid var(--main-black);
+	transform: scale(1.1);
 }

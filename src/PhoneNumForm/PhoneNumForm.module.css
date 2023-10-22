@@ -21,3 +21,6 @@
 .submit {
 	max-height: 52px;
 }
+.invalid {
+	color: var(--error);
+}

@@ -7,13 +7,13 @@ type Props = {
 	onClick: () => void;
 };
 
-export default function Banner({ onClick }: Props) {
+function Banner({ onClick }: Props) {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setIsVisible(true);
-		}, 1000);
+		}, 5000);
 
 		return () => clearTimeout(timer);
 	}, []);
@@ -34,8 +34,10 @@ export default function Banner({ onClick }: Props) {
 					Сканируйте QR-код <br />
 					или нажмите ОК
 				</p>
-				<CustomButton isActive buttonText='ok' onClick={onClick} />
+				<CustomButton buttonText='ok' onClick={onClick} />
 			</div>
 		</>
 	);
 }
+
+export default Banner;
