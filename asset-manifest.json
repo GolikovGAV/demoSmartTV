@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/demoSmartTV/static/css/main.b19c9d5c.css",
-    "main.js": "/demoSmartTV/static/js/main.f1fc2a97.js",
+    "main.css": "/demoSmartTV/static/css/main.adab2666.css",
+    "main.js": "/demoSmartTV/static/js/main.cfc5e1a1.js",
     "static/media/smeshariki.mp4": "/demoSmartTV/static/media/smeshariki.3807aaf4442e59ac03d0.mp4",
     "static/media/qr-code.svg": "/demoSmartTV/static/media/qr-code.650ba10bac1891a8790367fb61f2de4e.svg",
     "index.html": "/demoSmartTV/index.html",
-    "main.b19c9d5c.css.map": "/demoSmartTV/static/css/main.b19c9d5c.css.map",
-    "main.f1fc2a97.js.map": "/demoSmartTV/static/js/main.f1fc2a97.js.map"
+    "main.adab2666.css.map": "/demoSmartTV/static/css/main.adab2666.css.map",
+    "main.cfc5e1a1.js.map": "/demoSmartTV/static/js/main.cfc5e1a1.js.map"
   },
   "entrypoints": [
-    "static/css/main.b19c9d5c.css",
-    "static/js/main.f1fc2a97.js"
+    "static/css/main.adab2666.css",
+    "static/js/main.cfc5e1a1.js"
   ]
 }
