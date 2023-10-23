@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CustomButton from '../components/CustomButton/CustomButton';
 import Checkbox from '../components/Checkbox/Checkbox';
 import s from './PhoneNumForm.module.css';
@@ -13,7 +13,25 @@ function PhoneNumForm() {
 
 	const [isValid, setIsValid] = useState(true);
 
+	const [isSending, setIsSending] = useState(false);
+
 	const [phoneNumber, setPhoneNumber] = useState('');
+
+	useEffect(() => {
+		window.addEventListener('keydown', handleKeyPress);
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyPress);
+		};
+	}, []);
+
+	function handleKeyPress(e: KeyboardEvent) {
+		if (e.key >= '0' && e.key <= '9') {
+			handleClick(e.key);
+		} else if (e.key === 'Backspace') {
+			handleDelete();
+		}
+	}
 
 	function handleClick(digit: string) {
 		setPhoneNumber((prevPhoneNumber) => {
@@ -22,6 +40,10 @@ function PhoneNumForm() {
 			}
 			return prevPhoneNumber + digit;
 		});
+	}
+
+	function handleDelete() {
+		setPhoneNumber((prevPhoneNumber) => prevPhoneNumber.slice(0, -1));
 	}
 
 	function formatPhoneNumber(phoneNumber: string) {
@@ -50,24 +72,27 @@ function PhoneNumForm() {
 		return formattedPhoneNumber;
 	}
 
-	function handleDelete() {
-		setPhoneNumber((prevPhoneNumber) => prevPhoneNumber.slice(0, -1));
+	async function handleSubmit() {
+		const validRes = checkPhoneNumber(phoneNumber);
+		if (await validRes) {
+			setIsSent(!isSent);
+			setIsSending((prevValue) => !prevValue);
+		} else {
+			setIsValid((prevValue) => !prevValue);
+			setTimeout(() => {
+				setIsValid((prevValue) => !prevValue);
+			}, 3000);
+			setIsSending((prevValue) => !prevValue);
+		}
 	}
 
 	const numForm = (
 		<form
 			className={s.container}
-			onSubmit={async (e) => {
+			onSubmit={(e) => {
 				e.preventDefault();
-				const isValid = await checkPhoneNumber(phoneNumber);
-				if (isValid) {
-					setIsSent(!isSent);
-				} else {
-					setIsValid(false);
-					setTimeout(() => {
-						setIsValid(!isValid);
-					}, 3000);
-				}
+				setIsSending((prevValue) => !prevValue);
+				handleSubmit();
 			}}
 		>
 			<h2 className='text-l'>Введите ваш номер мобильного телефона</h2>
@@ -119,10 +144,10 @@ function PhoneNumForm() {
 				<p className={`${s.invalid} text-l`}>Неверно введён номер</p>
 			)}
 			<CustomButton
-				isDisabled={!isAgreed || phoneNumber.length !== 10}
+				isDisabled={!isAgreed || phoneNumber.length !== 10 || isSending}
 				buttonType='submit'
 				addClassName={s.submit}
-				buttonText='подтвердить номер'
+				buttonText={`${isSending ? 'Проверяем' : 'Подтвердить номер'}`}
 				onClick={() => {}}
 			/>
 		</form>

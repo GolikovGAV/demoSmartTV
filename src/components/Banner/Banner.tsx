@@ -20,22 +20,24 @@ function Banner({ onClick }: Props) {
 
 	return (
 		<>
-			<div className={`${s.banner} ${isVisible && s.visible}`}>
-				<h2 className='text-m'>
-					ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! <br />
-					ПОДАРИТЕ ЕМУ СОБАКУ!
-				</h2>
-				<img
-					className={s.qr}
-					src={qrCode}
-					alt='qr-code для перехода по ссылке'
-				/>
-				<p className='text-s'>
-					Сканируйте QR-код <br />
-					или нажмите ОК
-				</p>
-				<CustomButton buttonText='ok' onClick={onClick} />
-			</div>
+			{isVisible && (
+				<div className={`${s.banner}`}>
+					<h2 className='text-m'>
+						ИСПОЛНИТЕ МЕЧТУ ВАШЕГО МАЛЫША! <br />
+						ПОДАРИТЕ ЕМУ СОБАКУ!
+					</h2>
+					<img
+						className={s.qr}
+						src={qrCode}
+						alt='qr-code для перехода по ссылке'
+					/>
+					<p className='text-s'>
+						Сканируйте QR-код <br />
+						или нажмите ОК
+					</p>
+					<CustomButton buttonText='ok' onClick={onClick} />
+				</div>
+			)}
 		</>
 	);
 }

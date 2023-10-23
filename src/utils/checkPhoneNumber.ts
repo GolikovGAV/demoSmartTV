@@ -11,13 +11,15 @@ type TNumverifyRes = {
 	line_type: string;
 };
 
-export async function checkPhoneNumber(phoneNumber: string) {
-	// const key = '4d3dbfaff1bbb1105d571da1f439e42a';
-	// const url = `//apilayer.net/api/validate?access_key=${key}&number=${phoneNumber}&country_code=RU`;
+export function checkPhoneNumber(phoneNumber: string) {
 	const url = `https://api.apilayer.com/number_verification/validate?number=${phoneNumber}&country_code=RU`;
-	const res = await fetch(url, {
+	return fetch(url, {
 		headers: { apikey: 'h251xrArhDXHnXRffbnqtDJwAA8Dhadf' }
-	});
-	const data: TNumverifyRes = await res.json();
-	return data.valid;
+	})
+		.then((res) => {
+			return res.json();
+		})
+		.then((res: TNumverifyRes) => {
+			return res.valid;
+		});
 }
